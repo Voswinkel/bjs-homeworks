@@ -26,7 +26,7 @@ function getResult(a, b, c) {
       }
 }
 
-      return result;
+
 
 
       function calculateDrinkTask() {
@@ -39,15 +39,16 @@ function getResult(a, b, c) {
       function askDrink(name, dateOfBirthday) {
         let yearOfBirth = dateOfBirthday.getFullYear(),
             presentYear = new Date().getFullYear(),
-            result = (presentYear - yearOfBirth);
+            age = (presentYear - yearOfBirth);
 
-        if (result < 18) {
-          alert(`Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`);
+        if (age < 18) {
+        return age;
+        alert(`Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`);
         } else {
+          return age;
           alert(`Не желаете ли олд-фэшн, ${name}?`)
         }
-        console.log(result);
-        return result;
+        console.log(age);
       }
 
       function calculateAverageRating() {
@@ -58,12 +59,15 @@ function getResult(a, b, c) {
 
       function getAverageMark(marks) {
        // код для задачи №3 писать здесь
-        for ( let i = 0; marks.length >= 5; marks.pop()) {
+        let totalAmountOfMarks, mark, avaerageNote;
+        for ( let i = 0; marks.length > 5; marks.splice(5)) {
            console.log("Количество оценок большe пяти");
+           console.log(marks);
           }
         for ( mark in marks) {
-          mark++;
+        console.log(marks);
         }
-        averageMark = mark / marks.length;
-        return averageMark;
-      }
+
+        avaerageNote = totalAmountOfMarks / marks.length;
+        return avaerageNote;
+    }
