@@ -68,7 +68,8 @@ function getAverageMark(marks) {
     console.log("Количество оценок большe пяти");
   }
 
-  for (let i = 0; marks.length < 5; i++) {
+
+  for (let i = 0; i < marks.length; i++) {
     totalAmountOfMarks = marks[i] + totalAmountOfMarks;
     avaerageNote = totalAmountOfMarks / marks.length;
     console.log(totalAmountOfMarks);
