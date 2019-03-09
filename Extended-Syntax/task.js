@@ -65,7 +65,7 @@ function getAverageMark(marks) {
 
   if (marks.length > 5) {
     marks.splice(5);
-    console.log("Количество оценок большe пяти");
+    return `Количество оценок большe пяти`;
   }
 
 
