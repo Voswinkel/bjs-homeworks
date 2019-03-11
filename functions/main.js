@@ -2,7 +2,8 @@
 let a = +prompt("Input a", ""),
   b = +prompt("Input b", ""),
   c = +prompt("Input c", ""),
-  result = new Object;
+  result = new Object,
+  d = b * b - 4 * a * c;
 
 getSolutions(a, b, c);
 //sshowSolutionsMessage(a, b, c);
@@ -38,7 +39,7 @@ let num = 1,
     aaa: num,
     bbb: num1
   }
-// 
+//
 // function personalData(secretData) {
 //   let aaa = "firstname",
 //     bbb = "lastName";
@@ -56,4 +57,4 @@ let num = 1,
 //   console.log(secretData);
 // }
 
-personalData(secretData);
+//personalData(secretData);
