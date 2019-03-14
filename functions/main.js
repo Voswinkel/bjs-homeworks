@@ -1,6 +1,6 @@
 // Task 1
-let a = 2,
-  b = 8,
+let a = 1,
+  b = 0,
   c = 2;
 
 showSolutionsMessage(a, b, c);
@@ -28,9 +28,9 @@ function showSolutionsMessage(a, b, c) {
   let result = getSolutions(a, b, c);
   console.log(`Вычисляем корни квадратного уравнения ${a}x² + ${b}x + ${c}`);
   console.log(`Значение дискриминанта: ${result.diskriminant}`);
-  if (result.roots.length > 1) {
+  if (result.diskriminant > 0) {
     console.log(`Уравнение имеет два корня. X₁ = ${result.roots[0]}, X₂ = ${result.roots[1]}`);
-  } else if (result.roots.length === 1) {
+  } else if (result.diskriminant === 0) {
     console.log(`Уравнение имеет один корень X₁ = ${x1}`);
   } else {
     console.log(`Уравнение не имеет вещественных корней`);
