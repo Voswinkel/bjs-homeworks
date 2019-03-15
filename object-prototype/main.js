@@ -35,6 +35,7 @@ function initPrintAnimalSound() {
 
 function getAnimalSound(animal) {
   // код для задачи №2 писать здесь
+  
 }
 
 function initCalculateStatement() {
