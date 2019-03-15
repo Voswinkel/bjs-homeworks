@@ -11,18 +11,26 @@ function getSolutions(a, b, c) {
   result.diskriminant = d;
   result.roots;
   if (d < 0) {
-    return {diskriminant: d};
+    return {
+      diskriminant: d
+    };
     // return result.diskriminant;
   } else if (d === 0) {
     x1 = -b / 2 * a;
     result.roots = [x1];
-    return {roots:[x1], diskriminant:d};
+    return {
+      roots: [x1],
+      diskriminant: d
+    };
     // return result.roots, result.diskriminant;
   } else if (d > 0) {
     let x2 = (b + (Math.sqrt(d)) / (2 * a)),
       x1 = (-b + (Math.sqrt(d)) / (2 * a));
     result.roots = [x1, x2];
-    return {roots:[x1, x2], diskriminant:d};
+    return {
+      roots: [x1, x2],
+      diskriminant: d
+    };
     // return result;
   }
 }
@@ -50,7 +58,7 @@ let secretData = {
 function personalData(secretData) {
   console.log(secretData);
   secretData.firstName = secretData.aaa;
-    secretData.lastName = secretData.bbb;
+  secretData.lastName = secretData.bbb;
   delete secretData.aaa;
   delete secretData.bbb;
 
@@ -61,8 +69,31 @@ function personalData(secretData) {
       secretData[key] = "Эмильо";
     }
   }
-  console.log(secretData);
   return secretData;
 }
 
-personalData(secretData);
+function showPersonalData(secretData) {
+  let result = personalData(secretData);
+  console.log(result);
+  return result;
+}
+showPersonalData(secretData);
+
+// Task 3
+let data = {
+  algebra: [3,4,5,3,4,5,],
+  geomethry: [4,4,4,4,5,5,2],
+  biology: [3,5,3,5,3,5],
+  geography: [5,5,5,5,3],
+  english: [4,5,4,5,3,3,3,3,3,3,3,3]
+}
+function getAverageScore(data){
+// for (let key in data){
+  // for (key in data){
+  console.log(Object.values(data));
+  // }
+// }
+
+return total;
+}
+getAverageScore(data);
