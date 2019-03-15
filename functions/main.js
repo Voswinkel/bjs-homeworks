@@ -1,6 +1,6 @@
 // Task 1
-let a = 1,
-  b = 0,
+let a = 2,
+  b = 40,
   c = 2;
 
 showSolutionsMessage(a, b, c);
@@ -11,16 +11,19 @@ function getSolutions(a, b, c) {
   result.diskriminant = d;
   result.roots;
   if (d < 0) {
-    return result.diskriminant;
+    return {diskriminant: d};
+    // return result.diskriminant;
   } else if (d === 0) {
     x1 = -b / 2 * a;
     result.roots = [x1];
-    return result.roots, result.diskriminant;
+    return {roots:[x1], diskriminant:d};
+    // return result.roots, result.diskriminant;
   } else if (d > 0) {
     let x2 = (b + (Math.sqrt(d)) / (2 * a)),
       x1 = (-b + (Math.sqrt(d)) / (2 * a));
     result.roots = [x1, x2];
-    return result;
+    return {roots:[x1, x2], diskriminant:d};
+    // return result;
   }
 }
 
@@ -39,28 +42,27 @@ function showSolutionsMessage(a, b, c) {
 }
 
 //Task 2
-let num = 1,
-  num1 = 0,
-  secretData = {
-    aaa: num,
-    bbb: num1
-  }
-//
-// function personalData(secretData) {
-//   let aaa = "firstname",
-//     bbb = "lastName";
-//   if (num === 0) {
-//     num = "Родриго";
-//   } else {
-//     num = "Эмилио";
-//   }
-//
-//   if (num1 === 0) {
-//     num1 = "Родриго";
-//   } else {
-//     num1 = "Эмилио";
-//   }
-//   console.log(secretData);
-// }
+let secretData = {
+  aaa: 0,
+  bbb: 1
+};
 
-//personalData(secretData);
+function personalData(secretData) {
+  console.log(secretData);
+  secretData.firstName = secretData.aaa;
+    secretData.lastName = secretData.bbb;
+  delete secretData.aaa;
+  delete secretData.bbb;
+
+  for (let key in secretData) {
+    if (secretData[key] === 0) {
+      secretData[key] = "Родриго";
+    } else {
+      secretData[key] = "Эмильо";
+    }
+  }
+  console.log(secretData);
+  return secretData;
+}
+
+personalData(secretData);
