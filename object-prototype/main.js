@@ -57,7 +57,7 @@ function getAverageMark(marks) {
   // код для задачи №3 писать здесь
 
   for (i = 0; i<marks.length; i++){
-    total = i++;
+    total[i] = i++;
   }
   let average = total / marks.length;
   console.log(average);

@@ -80,20 +80,33 @@ function showPersonalData(secretData) {
 showPersonalData(secretData);
 
 // Task 3
-let data = {
-  algebra: [3,4,5,3,4,5,],
-  geomethry: [4,4,4,4,5,5,2],
-  biology: [3,5,3,5,3,5],
-  geography: [5,5,5,5,3],
-  english: [4,5,4,5,3,3,3,3,3,3,3,3]
-}
-function getAverageScore(data){
-// for (let key in data){
-  // for (key in data){
-  console.log(Object.values(data));
-  // }
-// }
 
-return total;
+let data = new Object();
+
+data.algebra = [3, 4, 5, 3, 4, 5, ],
+  data.geomethry = [4, 4, 4, 4, 5, 5, 2],
+  data.biology = [3, 5, 3, 5, 3, 5],
+  data.geography = [5, 5, 5, 5, 3],
+  data.english = [4, 5, 4, 5, 3, 3, 3, 3, 3, 3, 3, 3]
+
+function getAverageScore(data) {
+  // let sum = 0;
+  // for (i = 0; i < data.length; i++) {
+  //   sum += data[i];
+  // }
+  var sum = data.algebra.reduce(function(accumulator, currentValue) {
+    return accumulator + currentValue;
+  }, 0);
+
+  let average = sum / data.algebra.length;
+  return average;
+
 }
-getAverageScore(data);
+
+function showAverageData(data) {
+  let result = getAverageScore(data);
+  console.log("Средний бал " + result);
+  return result;
+}
+
+showAverageData(data);
