@@ -73,6 +73,7 @@ function personalData(secretData) {
 }
 
 function showPersonalData(secretData) {
+
   let result = personalData(secretData);
   console.log(result);
   return result;
@@ -84,29 +85,37 @@ showPersonalData(secretData);
 let data = new Object();
 
 data.algebra = [3, 4, 5, 3, 4, 5, ],
-  data.geomethry = [4, 4, 4, 4, 5, 5, 2],
-  data.biology = [3, 5, 3, 5, 3, 5],
-  data.geography = [5, 5, 5, 5, 3],
-  data.english = [4, 5, 4, 5, 3, 3, 3, 3, 3, 3, 3, 3]
+data.geomethry = [4, 4, 4, 4, 5, 5, 2];
+data.biology = [3, 5, 3, 5, 3, 5]
 
+let averageAlgebra = 0, averageGeomtry = 0, averageBiology = 0;
+let averageNotes = {
+  algebra: averageAlgebra,
+  geomethry: averageGeomtry,
+  biology: averageBiology
+}
 function getAverageScore(data) {
-  // let sum = 0;
-  // for (i = 0; i < data.length; i++) {
-  //   sum += data[i];
-  // }
-  var sum = data.algebra.reduce(function(accumulator, currentValue) {
-    return accumulator + currentValue;
-  }, 0);
 
-  let average = sum / data.algebra.length;
-  return average;
-
+  let sum = 0;
+  let amountOfnotes = 0;
+  let average;
+  for (let value in data) {
+    let arr = data[value];
+    for (let i = 0; i < arr.length; i++) {
+      sum += arr[i];
+      amountOfnotes = arr.length;
+    }
+  }
+  return average = sum / amountOfnotes;
 }
 
-function showAverageData(data) {
-  let result = getAverageScore(data);
-  console.log("Средний бал " + result);
-  return result;
+averageAlgebra = getAverageScore(data.algebra);
+averageGeomtry = getAverageScore(data.geomethry);
+averageBiology = getAverageScore(data.biology);
+
+function showAverageData(averageNotes) {
+  console.log("Средниe баллы  " + averageNotes);
+  return averageNotes;
 }
 
 showAverageData(data);
