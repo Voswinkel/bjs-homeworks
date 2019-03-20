@@ -83,32 +83,53 @@ data.algebra = [3, 4, 5, 3, 4, 5, ],
   data.geomethry = [4, 4, 4, 4, 5, 5, 2],
   data.biology = [3, 5, 3, 5, 3, 5]
 
-getaverageNotes(Array);
-
-function getaverageNotes(Array) {
-
-  let averageNotes = {
-    algebra: getTotalNotes(data.algebra),
-    geomethry: getTotalNotes(data.geomethry),
-    biology: getTotalNotes(data.biology)
-  }
-  console.log(averageNotes);
-  return averageNotes;
-}
-
-
-
-function getTotalNotes(arr) {
+function getAverageScore(arr) {
   let sum = 0;
-  for (let value in data) {
-    let arr = data[value];
-    for (let i = 0; i < arr.length; i++) {
-      sum += arr[i];
-    }
-  }
-  return sum;
+for (let i = 0; i < arr.length; i++) {
+  sum += arr[i];
+}
+let averageScore = sum / arr.length;
+return averageScore;
 }
 
+function showAverageScore() {
+  let averageScore = new Object();
+  averageScore = data;
+  averageScore.value;
+for (let value in averageScore) {
+  value = getAverageScore(value);
+  console.log (averageScore);
+}
+  return averageScore;
+}
+
+showAverageScore(data);
+// getaverageNotes(Array);
+//
+// function getaverageNotes(Array) {
+//
+//   let averageNotes = {
+//     algebra: getTotalNotes(data.algebra),
+//     geomethry: getTotalNotes(data.geomethry),
+//     biology: getTotalNotes(data.biology)
+//   }
+//   console.log(averageNotes);
+//   return averageNotes;
+// }
+//
+//
+//
+// function getTotalNotes(arr) {
+//   let sum = 0;
+//   for (let value in data) {
+//     let arr = data[value];
+//     for (let i = 0; i < arr.length; i++) {
+//       sum += arr[i];
+//     }
+//   }
+//   return sum;
+// }
+//
 
 //
 //
