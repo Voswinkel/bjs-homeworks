@@ -55,45 +55,61 @@ let secretData = {
   bbb: 1
 };
 
-function personalData(secretData) {
-  console.log(secretData);
-  secretData.firstName = secretData.aaa;
-  secretData.lastName = secretData.bbb;
-  delete secretData.aaa;
-  delete secretData.bbb;
+getPersonalData(secretData);
 
-  for (let key in secretData) {
-    if (secretData[key] === 0) {
-      secretData[key] = "Родриго";
-    } else {
-      secretData[key] = "Эмильо";
-    }
-  }
-  return secretData;
+function getPersonalData(secretData) {
+  let personDetails = {
+    firstName: getName(secretData.aaa),
+    lastName: getName(secretData.bbb)
+  };
+  console.log(secretData, personDetails);
+  return personDetails;
 }
 
-function showPersonalData(secretData) {
 
-  let result = personalData(secretData);
-  console.log(result);
+function getName(number) {
+  let result = number === 0 ? "Родриго" : "Эмильо";
   return result;
 }
-showPersonalData(secretData);
+
+
+
 
 // Task 3
 
 let data = new Object();
 
 data.algebra = [3, 4, 5, 3, 4, 5, ],
-data.geomethry = [4, 4, 4, 4, 5, 5, 2];
-data.biology = [3, 5, 3, 5, 3, 5]
+  data.geomethry = [4, 4, 4, 4, 5, 5, 2],
+  data.biology = [3, 5, 3, 5, 3, 5]
 
-let averageAlgebra = 0, averageGeomtry = 0, averageBiology = 0;
-let averageNotes = {
-  algebra: averageAlgebra,
-  geomethry: averageGeomtry,
-  biology: averageBiology
+getaverageNotes(Array);
+
+function getaverageNotes(Array) {
+
+
+  let averageNotes = {
+    algebra: getTotalNotes(data.algebra),
+    geomethry: getTotalNotes(data.geomethry),
+    biology: getTotalNotes(data.biology)
+  }
+  console.log(averageNotes);
+  return averageNotes;
 }
+
+
+
+function getTotalNotes(arr) {
+  let sum = 0;
+  for (let value in data) {
+    let arr = data[value];
+    for (let i = 0; i < arr.length; i++) {
+      sum += arr[i];
+    }
+  }
+  return sum;
+}
+
 function getAverageScore(data) {
 
   let sum = 0;
@@ -109,13 +125,11 @@ function getAverageScore(data) {
   return average = sum / amountOfnotes;
 }
 
-averageAlgebra = getAverageScore(data.algebra);
-averageGeomtry = getAverageScore(data.geomethry);
-averageBiology = getAverageScore(data.biology);
+//
+//
+// function showAverageData() {
+//   console.log(averageNotes);
+// return averageNotes;
+// }
 
-function showAverageData(averageNotes) {
-  console.log("Средниe баллы  " + averageNotes);
-  return averageNotes;
-}
-
-showAverageData(data);
+// showAverageData(data);
