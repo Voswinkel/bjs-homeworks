@@ -87,7 +87,6 @@ getaverageNotes(Array);
 
 function getaverageNotes(Array) {
 
-
   let averageNotes = {
     algebra: getTotalNotes(data.algebra),
     geomethry: getTotalNotes(data.geomethry),
@@ -110,20 +109,6 @@ function getTotalNotes(arr) {
   return sum;
 }
 
-function getAverageScore(data) {
-
-  let sum = 0;
-  let amountOfnotes = 0;
-  let average;
-  for (let value in data) {
-    let arr = data[value];
-    for (let i = 0; i < arr.length; i++) {
-      sum += arr[i];
-      amountOfnotes = arr.length;
-    }
-  }
-  return average = sum / amountOfnotes;
-}
 
 //
 //
