@@ -85,57 +85,26 @@ data.algebra = [3, 4, 5, 3, 4, 5, ],
 
 function getAverageScore(arr) {
   let sum = 0;
-for (let i = 0; i < arr.length; i++) {
-  sum += arr[i];
-}
-let averageScore = sum / arr.length;
-return averageScore;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  let averageScore = sum / arr.length;
+  return averageScore;
 }
 
-function showAverageScore() {
+function showAverageScore(data) {
   let averageScore = new Object();
   averageScore = data;
-  averageScore.value;
-for (let value in averageScore) {
-  value = getAverageScore(value);
-  console.log (averageScore);
-}
+  let total = 0;
+  for (let property in averageScore) {
+
+    averageScore[property] = getAverageScore(averageScore[property]);
+    total += averageScore[property];
+  }
+  let average = total / Object.keys(averageScore).length
+  averageScore.average = average;
+  console.log(averageScore);
   return averageScore;
 }
 
 showAverageScore(data);
-// getaverageNotes(Array);
-//
-// function getaverageNotes(Array) {
-//
-//   let averageNotes = {
-//     algebra: getTotalNotes(data.algebra),
-//     geomethry: getTotalNotes(data.geomethry),
-//     biology: getTotalNotes(data.biology)
-//   }
-//   console.log(averageNotes);
-//   return averageNotes;
-// }
-//
-//
-//
-// function getTotalNotes(arr) {
-//   let sum = 0;
-//   for (let value in data) {
-//     let arr = data[value];
-//     for (let i = 0; i < arr.length; i++) {
-//       sum += arr[i];
-//     }
-//   }
-//   return sum;
-// }
-//
-
-//
-//
-// function showAverageData() {
-//   console.log(averageNotes);
-// return averageNotes;
-// }
-
-// showAverageData(data);
