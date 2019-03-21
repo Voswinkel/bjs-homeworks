@@ -13,22 +13,23 @@ function calculateMortgage() {
 
 function calculateTotalMortgage(percent, contribution, amount, date) {
   // код для задачи №1 писать здесь
-  percent = parseInt(percent), contribution = parseInt(contribution), amount = parseInt(amount);
-  if (percent == "" || isNaN(percent) || contribution == "" || isNaN(contribution) || amount == "" || isNaN(amount)) {
+  const loanPercent = parseInt(percent), loanContribution = parseInt(contribution), loanAmount = parseInt(amount);
+  if (loanPercent == "" || isNaN(loanPercent) || loanContribution == "" || isNaN(loanContribution) || loanAmount == "" || isNaN(loanAmount)) {
     alert("wrong data input");
   }
-  let currentMonth = new Date().getMonth();
-  let mortageMonth = date().getMonth();
-  let currentYear = new Date().getFullYear();
-  let mortageYear = date().getFullYear();
-  let totalMonth = currentMonth + (12 - mortageMonth);
-  let totalYears = currentYear - mortageYear;
-  let totalMonthsToPay = totalMonth + (totalYears * 12);
+  const currentMonth = new Date().getMonth();
+  let mortageMonth = new Date(date).getMonth();
+  // let mortageMonth = date().getMonth();
+  const currentYear = new Date().getFullYear();
+  let mortageYear = new Date(date).getFullYear();
+  const totalMonth = currentMonth + (12 - mortageMonth);
+  const totalYears =  mortageYear - currentYear;
+  const totalMonthsToPay = totalMonth + (totalYears * 12);
 
-  let sumOfCredit = amount - contribution;
-  percent = percent / 100;
-  let monthlyPayment = (sumOfCredit * (percent + percent / ((Math.sqrt(percent) - 1))));
-  let totalAmount = monthlyPayment * totalMonthsToPay;
+  const sumOfCredit = loanAmount - loanContribution;
+  percent = loanPercent / 100;
+  const monthlyPayment = (sumOfCredit * (loanPercent + loanPercent / ((Math.sqrt(loanPercent) - 1))));
+  const totalAmount = monthlyPayment * totalMonthsToPay;
 
   // Платеж=S*(P+P/(((1+P)^n)-1)), где:
   // S - сумма кредита, P - 1/12 процентной ставки (от 0 до 1), n - количество месяцев
@@ -48,14 +49,10 @@ function sayHello() {
 
 function getGreeting(name) {
   // код для задачи №2 писать здесь
-
-  if (name = "") {
-    name = "Anonim";
-    greeting = `Привет, мир! Меня зовут ${name}`;
-    alert (greeting);
-    console.log("Anonim");
-    return greeting;
+let greeting = name;
+  if (greeting = "") {
+  return "Привет, мир! Меня зовут Anonim";
   } else {
-      return greeting;
+      return "Привет, мир! Меня зовут  " + greeting;
   }
 }
